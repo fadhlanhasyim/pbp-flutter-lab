@@ -13,11 +13,9 @@ class DrawerApp extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          // Menambahkan clickable menu
           ListTile(
             title: const Text('counter_7'),
             onTap: () {
-              // Route menu ke halaman utama
               if (route == 'counter_7') {
                 Navigator.pop(context);
               } else {
@@ -35,7 +33,6 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             title: const Text('Tambah Budget'),
             onTap: () {
-              // Route menu ke halaman
               if (route == 'tambah-budget') {
                 Navigator.pop(context);
               } else {
@@ -49,7 +46,6 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             title: const Text('Data Budget'),
             onTap: () {
-              // Route menu ke halaman form
               if (route == 'data-budget') {
                 Navigator.pop(context);
               } else {

@@ -80,7 +80,7 @@ class DataBudget extends StatelessWidget {
               child: Text(
               'No data.',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            )),
+            ),),
     );
   }
 }
