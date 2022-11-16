@@ -2,8 +2,6 @@ import 'package:counter_7/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_7/globals.dart' as globals;
 
-import 'dart:math' as math;
-
 class DataBudget extends StatelessWidget {
   const DataBudget({super.key});
 
@@ -13,7 +11,9 @@ class DataBudget extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Data Budget'),
       ),
-      drawer: const DrawerApp(),
+      drawer: const DrawerApp(
+        route: 'data-budget',
+      ),
       body: globals.budgets.isNotEmpty
           ? ListView.builder(
               itemCount: globals.budgets.length,
@@ -33,7 +33,7 @@ class DataBudget extends StatelessWidget {
                       ),
                     ],
                     borderRadius: BorderRadius.circular(20),
-                    color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(0.4),
+                    color: const Color.fromARGB(255, 165, 224, 167),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,11 @@ class DataBudget extends StatelessWidget {
                 );
               },
             )
-          : const Center(child: Text('No data.', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),)),
+          : const Center(
+              child: Text(
+              'No data.',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            )),
     );
   }
 }

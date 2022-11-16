@@ -31,7 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: const DrawerApp(),
+      drawer: const DrawerApp(
+        route: 'counter_7',
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

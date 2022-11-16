@@ -27,7 +27,7 @@ class _TambahBudgetState extends State<TambahBudget> {
       appBar: AppBar(
         title: const Text('Tambah Budget'),
       ),
-      drawer: const DrawerApp(),
+      drawer: const DrawerApp(route: 'tambah-budget',),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
