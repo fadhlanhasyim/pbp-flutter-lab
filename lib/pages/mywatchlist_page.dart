@@ -1,9 +1,7 @@
 import 'package:counter_7/pages/detail_page.dart';
+import 'package:counter_7/utils/fetch_watchlist.dart';
 import 'package:counter_7/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:counter_7/models/mywatchlist_model.dart';
 
 class MywatchlistPage extends StatefulWidget {
   const MywatchlistPage({super.key});
@@ -13,31 +11,7 @@ class MywatchlistPage extends StatefulWidget {
 }
 
 class _MywatchlistPageState extends State<MywatchlistPage> {
-  Future<List<Mywatchlist>> fetchMywatchlist() async {
-    var url = Uri.parse(
-      'https://pbp-django-assignments.herokuapp.com/mywatchlist/json/',
-    );
-    var response = await http.get(
-      url,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-    );
-
-    // melakukan decode response menjadi bentuk json
-    var data = jsonDecode(utf8.decode(response.bodyBytes));
-
-    // melakukan konversi data json menjadi object ToDo
-    List<Mywatchlist> mywatchList = [];
-    for (var d in data) {
-      if (d != null) {
-        mywatchList.add(Mywatchlist.fromJson(d));
-      }
-    }
-
-    return mywatchList;
-  }
+  Future fetchData = fetchMywatchlist();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +23,7 @@ class _MywatchlistPageState extends State<MywatchlistPage> {
         route: 'mywatchlist',
       ),
       body: FutureBuilder(
-        future: fetchMywatchlist(),
+        future: fetchData,
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
@@ -67,50 +41,73 @@ class _MywatchlistPageState extends State<MywatchlistPage> {
             } else {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
-                itemBuilder: (_, index) => InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailPage(
-                          data: snapshot.data![index],
+                itemBuilder: (_, index) {
+                  // isWatched = snapshot.data![index].watched;
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                              data: snapshot.data![index],),
                         ),
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
                       ),
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
-                    ),
-                    padding: const EdgeInsets.all(20.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 2.0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${snapshot.data![index].title}',
-                          style: const TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      padding: const EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color:
+                              snapshot.data![index].watched ? Colors.green : Colors.red,
                         ),
-                        const SizedBox(height: 10),
-                        Text(snapshot.data![index].watched ?'Watched':'Not watched'),
-                      ],
+                        borderRadius: BorderRadius.circular(15.0),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.white,
+                            blurRadius: 2.0,
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${snapshot.data![index].title}',
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                snapshot.data![index].watched
+                                    ? 'Watched'
+                                    : 'Not watched',
+                              ),
+                            ],
+                          ),
+                          Checkbox(
+                            value: snapshot.data![index].watched,
+                            onChanged: (val) {
+                              setState(() {
+                                snapshot.data![index].watched = !snapshot.data![index].watched;
+                              });
+                            },
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                },
               );
             }
           }

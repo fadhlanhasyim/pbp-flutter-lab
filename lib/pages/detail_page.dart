@@ -1,4 +1,5 @@
 import 'package:counter_7/models/mywatchlist_model.dart';
+import 'package:counter_7/utils/globals.dart';
 import 'package:counter_7/widgets/detail_attribute.dart';
 import 'package:counter_7/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class DetailPage extends StatelessWidget {
                   DetailAttribute(name: 'Rating', value: '${data.rating}/5'),
                   DetailAttribute(
                     name: 'Status',
-                    value: data.watched ? 'watched' : 'unwatched',
+                    value: data.watched ? 'watched' : 'Not watched',
                   ),
                   const Text(
                     'Review:',

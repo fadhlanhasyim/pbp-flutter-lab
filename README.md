@@ -125,3 +125,59 @@ Navigator bekerja menggunakan prinsip stack. Halaman yang akan dimuat akan di-pu
 5. Membuat global variabel untuk menampung instances of budget.
 7. Membuat halaman data_budget untuk menampilkan list budget.
 8. Selesai!
+
+## Jawaban Pertanyaan Tugas 9
+
+#### Pertanyaan 1: Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+**Jawab:**
+
+
+
+#### Pertanyaan 2: Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+
+**Jawab:**
+
+Container: berfungsi menampung widget di dalamnya.
+Align: berfungsi untuk memberikan alignment pada widget di dalamnya.
+Row: berfungsi untuk menempatkan widget secara horizontal.
+Icon: berfungsi untuk memberikan icon.
+Center: berfungsi untuk menempatkan widget di tengah.
+Text: berfungsi untuk menampilkan teks.
+Column: berfungsi untuk menampilkan widget secara vertikal.
+AppBar: berfungsi sebagai appbar pada aplikasi.
+Scaffold: berfungsi untuk memberikan struktur app.
+MaterialApp: berfungsi ketika ingin menggunakan material design.
+IconButton: berfungsi sebagai sebuah tombol yang berwujud icon.
+ListView.builder: berfungsi untuk menampilkan list of children yang scrollable.
+DropdownButton2: berfungsi sebagai sebuah dropdown (pub.dev).
+SizedBox: berfungsi untuk memberikan jarak.
+SingleChildScrollView: berfungsi untuk memberikan fungsionalitas scrollable terhadap child-nya.
+Expanded: berfungsi untuk menampung widget dengan sifat expand-nya.
+TextFormField: berfungsi sebagai form.
+
+#### Pertanyaan 3: Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+
+**Jawab:**
+
+1. onPressed
+2. onSaved
+3. onChanged
+4. onClick
+5. onLongPress
+6. onHover
+7. onFocusChange
+8. onTap
+9. dan masih banyak lagi :D
+
+#### Pertanyaan 4:  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+**Jawab:**
+
+1. Melakukan refactor widget drawer.
+2. Membuat routing pada widget drawer.
+3. Membuat halaman tambah_budget beserta form-nya.
+4. Membuat model budget.
+5. Membuat global variabel untuk menampung instances of budget.
+7. Membuat halaman data_budget untuk menampilkan list budget.
+8. Selesai!
