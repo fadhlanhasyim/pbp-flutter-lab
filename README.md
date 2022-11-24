@@ -132,7 +132,7 @@ Navigator bekerja menggunakan prinsip stack. Halaman yang akan dimuat akan di-pu
 
 **Jawab:**
 
-
+Ya, kita bisa mengambil dan menggunakan JSON tanpa harus membuat modelnya terlebih dahulu. Namun, cara tersebut tidak direkomendasikan karena akan lebih baik menggunakan data yang sudah di-parse ke model dibandingkan dengan menggunakan raw JSON. Penggunaan model akan membuat lebih rapi dan terstruktur.
 
 #### Pertanyaan 2: Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
 
@@ -141,43 +141,38 @@ Navigator bekerja menggunakan prinsip stack. Halaman yang akan dimuat akan di-pu
 Container: berfungsi menampung widget di dalamnya.
 Align: berfungsi untuk memberikan alignment pada widget di dalamnya.
 Row: berfungsi untuk menempatkan widget secara horizontal.
-Icon: berfungsi untuk memberikan icon.
 Center: berfungsi untuk menempatkan widget di tengah.
 Text: berfungsi untuk menampilkan teks.
 Column: berfungsi untuk menampilkan widget secara vertikal.
 AppBar: berfungsi sebagai appbar pada aplikasi.
 Scaffold: berfungsi untuk memberikan struktur app.
 MaterialApp: berfungsi ketika ingin menggunakan material design.
-IconButton: berfungsi sebagai sebuah tombol yang berwujud icon.
 ListView.builder: berfungsi untuk menampilkan list of children yang scrollable.
 DropdownButton2: berfungsi sebagai sebuah dropdown (pub.dev).
 SizedBox: berfungsi untuk memberikan jarak.
 SingleChildScrollView: berfungsi untuk memberikan fungsionalitas scrollable terhadap child-nya.
 Expanded: berfungsi untuk menampung widget dengan sifat expand-nya.
-TextFormField: berfungsi sebagai form.
+InkWell: berfungsi untuk memberikan behavior klik pada child widgetnya.
+CheckBox: berfungsi sebagai checkbox untuk mengubah status watched.
+
 
 #### Pertanyaan 3: Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
 
 **Jawab:**
 
-1. onPressed
-2. onSaved
-3. onChanged
-4. onClick
-5. onLongPress
-6. onHover
-7. onFocusChange
-8. onTap
-9. dan masih banyak lagi :D
+1. Fetch data dari API endpoint.
+2. Data yang didapat di-decode menjadi bentuk JSON.
+3. Data dalam bentuk JSON di-convert menjadi bentuk model.
+4. Data dalam bentuk model dapat digunakan pada aplikasi Flutter.
 
 #### Pertanyaan 4:  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
 **Jawab:**
 
-1. Melakukan refactor widget drawer.
-2. Membuat routing pada widget drawer.
-3. Membuat halaman tambah_budget beserta form-nya.
-4. Membuat model budget.
-5. Membuat global variabel untuk menampung instances of budget.
-7. Membuat halaman data_budget untuk menampilkan list budget.
-8. Selesai!
+4. Membuat model mywatchlist.
+3. Memodifikasi widget drawer.
+1. Membuat page mywatchlist untuk menampilkan seluruh list mywatch.
+2. Membuat page detail mywatchlist.
+5. Menggunakan data mywatchlist pada aplikasi Flutter.
+7. Mengerjakan bonus. 
+6. Melakukan refactor function fetch data.
