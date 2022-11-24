@@ -1,10 +1,10 @@
-import 'package:counter_7/budget_model.dart';
-import 'package:counter_7/drawer.dart';
+import 'package:counter_7/models/budget_model.dart';
+import 'package:counter_7/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:counter_7/globals.dart' as globals;
+import 'package:counter_7/utils/globals.dart' as globals;
 
 class TambahBudget extends StatefulWidget {
   const TambahBudget({super.key});
@@ -182,7 +182,7 @@ class _TambahBudgetState extends State<TambahBudget> {
                   ),
                   Container(
                     padding:
-                        EdgeInsets.only(top: 7, left: 15, bottom: 7, right: 7),
+                        const EdgeInsets.only(top: 7, left: 15, bottom: 7, right: 7),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
                       border: Border.all(color: Colors.grey),

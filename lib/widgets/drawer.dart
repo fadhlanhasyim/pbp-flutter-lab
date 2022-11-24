@@ -1,6 +1,7 @@
-import 'package:counter_7/data_budget.dart';
-import 'package:counter_7/home_page.dart';
-import 'package:counter_7/tambah_budget.dart';
+import 'package:counter_7/pages/data_budget.dart';
+import 'package:counter_7/pages/home_page.dart';
+import 'package:counter_7/pages/mywatchlist_page.dart';
+import 'package:counter_7/pages/tambah_budget.dart';
 import 'package:flutter/material.dart';
 
 class DrawerApp extends StatelessWidget {
@@ -52,6 +53,19 @@ class DrawerApp extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const DataBudget()),
+                );
+              }
+            },
+          ),
+          ListTile(
+            title: const Text('My Watchlist'),
+            onTap: () {
+              if (route == 'mywatchlist') {
+                Navigator.pop(context);
+              } else {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MywatchlistPage()),
                 );
               }
             },

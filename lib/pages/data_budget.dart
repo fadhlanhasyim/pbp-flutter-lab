@@ -1,6 +1,6 @@
-import 'package:counter_7/drawer.dart';
+import 'package:counter_7/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:counter_7/globals.dart' as globals;
+import 'package:counter_7/utils/globals.dart' as globals;
 
 class DataBudget extends StatelessWidget {
   const DataBudget({super.key});
@@ -78,9 +78,10 @@ class DataBudget extends StatelessWidget {
             )
           : const Center(
               child: Text(
-              'No data.',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),),
+                'No data.',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ),
     );
   }
 }
